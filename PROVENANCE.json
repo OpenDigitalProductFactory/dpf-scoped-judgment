@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "component": "dpf-scoped-judgment",
+  "sourceRepository": "https://github.com/OpenDigitalProductFactory/opendigitalproductfactory",
+  "sourceRevision": "56f3a5d2d57d751eb3ac435dcca4133c5ff46686",
+  "mergedPR": "https://github.com/OpenDigitalProductFactory/opendigitalproductfactory/pull/6724",
+  "license": "Apache-2.0",
+  "qualification": "Synthetic advisory contract fixture only; no authenticated ownership, corpus quality, human admission, enforcement or production qualification.",
+  "publication": "public source seed; no package release or consumer acceptance",
+  "files": [
+    {
+      "path": "LICENSE",
+      "upstreamPath": "LICENSE",
+      "gitBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "NOTICE",
+      "upstreamPath": "NOTICE",
+      "gitBlob": "54507a7c56acd4bcba6868607038f1db6b4e1da4",
+      "sha256": "edca2f3be891d8dc17e077eee49e979fd8348ae50eb6cba7700257ce87e5f650",
+      "bytes": 569,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/_shared/read-regular-file.mjs",
+      "upstreamPath": "examples/_shared/read-regular-file.mjs",
+      "gitBlob": "c07131eb8b93407b1eb392085e9d927f1440fe2d",
+      "sha256": "cc3b57089dd6d732706b7651a9d3a6ca586c6c2b02adc9db5d3226d96993e5f3",
+      "bytes": 797,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/LICENSE",
+      "upstreamPath": "examples/scoped-judgment/LICENSE",
+      "gitBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/NOTICE",
+      "upstreamPath": "examples/scoped-judgment/NOTICE",
+      "gitBlob": "5b90051c84ee1dbe9bb2afd1753ccd1b0fc0e8d0",
+      "sha256": "0427715d9ed2204266376a4c00fbf94adc69fdc3ae6c8c07e6a8d23a21d75347",
+      "bytes": 919,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/README.md",
+      "upstreamPath": "examples/scoped-judgment/README.md",
+      "gitBlob": "d881f9e4126d7572d247d85a89001d97f5b2bd73",
+      "sha256": "2cab51df7afd9759f0eb09bab1ff5ac1e0d8bd691f1fa4a04d57365d85e1c562",
+      "bytes": 6746,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/closure.json",
+      "upstreamPath": "examples/scoped-judgment/closure.json",
+      "gitBlob": "642107d3fe6bbe430b7b6b0688166776008ad4ff",
+      "sha256": "740e84359e5bbc753485c5b575f6cadf8389bae08dad8e1731c95baa4adc4d15",
+      "bytes": 886,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/run.mjs",
+      "upstreamPath": "examples/scoped-judgment/run.mjs",
+      "gitBlob": "a73cd778bf6f224007b87e306f7c45fb862e0740",
+      "sha256": "8653c207eb9321946678d297bf19fc693d3fc2136416ea87d3748b4e575946cd",
+      "bytes": 3743,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/src/smoke.ts",
+      "upstreamPath": "examples/scoped-judgment/src/smoke.ts",
+      "gitBlob": "0bb012176101dfce8179c780a5c7d335386efadd",
+      "sha256": "0f4dca4abf111d07932242f8064e14505bb410e371958b3dc953ba5988888cb2",
+      "bytes": 8175,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "examples/scoped-judgment/tsconfig.json",
+      "upstreamPath": "examples/scoped-judgment/tsconfig.json",
+      "gitBlob": "09de590a54ffbcc5d612b0e5ab51c86029efa8da",
+      "sha256": "4fbe1dd841363106e6e91b557725f06d1273a3bf5a634f936c3aa1234bdc3ef3",
+      "bytes": 386,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/decision-scopes.ts",
+      "upstreamPath": "packages/validators/src/decision-scopes.ts",
+      "gitBlob": "7c672a1b3d2fcbe44993108f66683916438d1a4c",
+      "sha256": "17dea1d50d55298ccbca2259c3e8a8953fdf102bb07374db91b8c4036403e349",
+      "bytes": 210,
+      "role": "frozen-compatibility-dependency"
+    },
+    {
+      "path": "packages/validators/src/judgment/index.ts",
+      "upstreamPath": "packages/validators/src/judgment/index.ts",
+      "gitBlob": "c67fab28937d1e8117ecb112f4cf16f619479622",
+      "sha256": "c26f03e75154dc7b40b73a7ff0e212f7afebd238679a77329220c45b1314625f",
+      "bytes": 306,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/judgment/mcda-quality-gates.ts",
+      "upstreamPath": "packages/validators/src/judgment/mcda-quality-gates.ts",
+      "gitBlob": "ef8cbf24a70d6940e8ac82c57218ddaf9bed7475",
+      "sha256": "ce54eeeaf08cd0e74264f6293352a1154ab075ffc2f55deb423e5f811a369e49",
+      "bytes": 4650,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/judgment/option-identities.ts",
+      "upstreamPath": "packages/validators/src/judgment/option-identities.ts",
+      "gitBlob": "3db6096ef0730efe2dcf3e674ccedf68d0b762a9",
+      "sha256": "106d58e0466837ce3007941ef4e32d45090a62c858b34c5458c47020d88639ad",
+      "bytes": 1921,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/judgment/option-scoring.ts",
+      "upstreamPath": "packages/validators/src/judgment/option-scoring.ts",
+      "gitBlob": "9cf14dd147239cbac3bcac43915c118ed875ca47",
+      "sha256": "4947e9f9ac5f8bb2e1964da42779fc8fa5ceefca69dfa9e8334a17e68fac2125",
+      "bytes": 31255,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/judgment/scoped-advice.ts",
+      "upstreamPath": "packages/validators/src/judgment/scoped-advice.ts",
+      "gitBlob": "fcca60fd4b191d667cf03665128d4da45a4ecc72",
+      "sha256": "1b707e02ca8c92a81efe2202349ac230c3c0262ae134e897c3f1007a54e07636",
+      "bytes": 13080,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/judgment/scopes.ts",
+      "upstreamPath": "packages/validators/src/judgment/scopes.ts",
+      "gitBlob": "b50f60c966edbf22ee0569c4c11bc3c770643ab1",
+      "sha256": "51b7ee2a77e2435d2758ca8ad0a182a32c788bd59aa4d8f479b0bad1a86acf7b",
+      "bytes": 77,
+      "role": "component-source-or-example"
+    },
+    {
+      "path": "packages/validators/src/judgment/uncertain-retry.ts",
+      "upstreamPath": "packages/validators/src/judgment/uncertain-retry.ts",
+      "gitBlob": "054747513078ae50ea973307878d4e5844a69409",
+      "sha256": "e95b32b6a25c9fb20658702d12e4b0f412988381d1485730ee6bb1224e29ffd8",
+      "bytes": 5080,
+      "role": "component-source-or-example"
+    }
+  ]
+}

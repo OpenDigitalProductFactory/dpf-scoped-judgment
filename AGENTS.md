@@ -1,0 +1,3 @@
+# Component working agreement
+
+Read README.md, PROVENANCE.json, DEPENDENCY-BOUNDARY.json and MIGRATION.md first. This is an isolated reusable component, not the DPF/DPF2 application or Linux host. Do not mutate either consumer, production data, credentials or infrastructure as a side effect. Retain canonical ownership of identity, time, authority, qualification and effect/result custody in the host. Run npm run check and report exact source/toolchain/test scope; fixture success is not production/native/company acceptance. Shared compatibility sources stay frozen until their explicit dependency migration. Never add a parallel service/store or copy an adjacent application to make a test pass.
