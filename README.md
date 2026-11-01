@@ -22,7 +22,7 @@ Upstream qualification limit: Synthetic advisory contract fixture only; no authe
 
 ## Private installed foundation candidate
 
-`0.1.0-candidate.1` emits ESM and declarations with explicit package exports.
+`0.1.0-candidate.2` emits ESM and declarations with explicit package exports.
 The root exposes advisory judgment; supported subpaths are `decision-scopes`,
 `bounded-trusted-json`, `option-scoring`, `quality-gates`, `option-identities`,
 `uncertain-retry` and `scoped-advice`. Other deep paths are unsupported.
@@ -51,3 +51,5 @@ is supported on the two tested Node versions, 24.16.0 and 24.22.0. The build
 stays pinned to 24.16.0/TypeScript 6.0.3; pure source/API semantics are unchanged.
 The prior `.0` archive stays immutable. The receiving matrix is Darwin arm64,
 not product, actual browser/CSP or Linux enforcement qualification.
+
+Candidate `0.1.0-candidate.2` adds strict-install admission for Node 24.22.1, the patch used by current DPF CI. Build inputs remain pinned to Node 24.16.0/TypeScript 6.0.3. Qualification runs the clean installed receiver on the exact added patch as well as the prior receiving profile; source, emitted APIs and authority semantics are unchanged. Earlier candidate archives remain immutable. This is synthetic receiving evidence, not product, browser/CSP or OS acceptance.
