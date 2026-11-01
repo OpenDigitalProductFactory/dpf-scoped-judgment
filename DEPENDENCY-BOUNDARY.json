@@ -27,9 +27,13 @@
   ],
   "artifactContract": {
     "name": "@opendigitalproductfactory/dpf-scoped-judgment",
-    "version": "0.1.0-candidate.0",
+    "version": "0.1.0-candidate.1",
     "format": "ESM plus declarations",
     "runtimeDependencies": {},
-    "publicPackagePublication": false
+    "publicPackagePublication": false,
+    "supportedNodeVersions": [
+      "24.16.0",
+      "24.22.0"
+    ]
   }
 }
