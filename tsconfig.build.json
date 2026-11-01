@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022"
+    ],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "types": [],
+    "rewriteRelativeImportExtensions": true,
+    "declaration": true,
+    "noEmitOnError": true,
+    "skipLibCheck": false,
+    "rootDir": "packages/validators/src",
+    "outDir": "dist"
+  },
+  "include": [
+    "packages/validators/src/**/*.ts"
+  ]
+}

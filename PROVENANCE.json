@@ -89,6 +89,15 @@
       "role": "component-source-or-example"
     },
     {
+      "path": "packages/validators/src/bounded-trusted-json.ts",
+      "upstreamPath": "packages/validators/src/bounded-trusted-json.ts",
+      "upstreamRevision": "46f8a5ca9cb75aa871a223b70acc6dcc65d15a67",
+      "gitBlob": "6e0b92b07d1d3d6769d88e3af735727c1982fad3",
+      "sha256": "5acf5705f467c81acf3eb9c018acb151d7cab88ea57aaf2d6ed4a37a2ee9bc0b",
+      "bytes": 1777,
+      "role": "canonical-foundation-contract"
+    },
+    {
       "path": "packages/validators/src/decision-scopes.ts",
       "upstreamPath": "packages/validators/src/decision-scopes.ts",
       "gitBlob": "7c672a1b3d2fcbe44993108f66683916438d1a4c",

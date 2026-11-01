@@ -1,6 +1,6 @@
 {
   "component": "dpf-scoped-judgment",
-  "stage": "seeded extraction candidate",
+  "stage": "private installed artifact candidate; no host adoption",
   "componentMaintainer": "OpenDigitalProductFactory maintainers",
   "runtimeDependencies": {},
   "sharedFrozenSources": [
@@ -19,5 +19,17 @@
     "DPF": "existing consumers remain unchanged until explicit compatibility migration",
     "DPF2": "existing frozen graph/schema absorption unchanged; Linux appliance remains destination consumer"
   },
-  "releaseCondition": "Standalone checks, actual consumer acceptance, shared-source retirement and release/maintenance ownership must be recorded before a consuming release."
+  "releaseCondition": "Standalone checks, actual consumer acceptance, shared-source retirement and release/maintenance ownership must be recorded before a consuming release.",
+  "canonicalResponsibilities": [
+    "advisory scoring and scoped advice",
+    "decision-scopes vocabulary",
+    "bounded-trusted-json leaf"
+  ],
+  "artifactContract": {
+    "name": "@opendigitalproductfactory/dpf-scoped-judgment",
+    "version": "0.1.0-candidate.0",
+    "format": "ESM plus declarations",
+    "runtimeDependencies": {},
+    "publicPackagePublication": false
+  }
 }

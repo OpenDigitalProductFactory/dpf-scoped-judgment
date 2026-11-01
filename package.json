@@ -1,6 +1,6 @@
 {
   "name": "@opendigitalproductfactory/dpf-scoped-judgment",
-  "version": "0.0.0",
+  "version": "0.1.0-candidate.0",
   "private": true,
   "type": "module",
   "description": "Scope-aware advisory judgment and option scoring",
@@ -15,10 +15,59 @@
   "scripts": {
     "verify:source": "node scripts/verify-provenance.mjs",
     "test": "node examples/scoped-judgment/run.mjs",
-    "check": "npm run verify:source && npm test"
+    "check": "npm run verify:source && npm test && npm run build && npm run test:package",
+    "build": "node scripts/build.mjs",
+    "prepack": "npm run build",
+    "test:package": "node scripts/check-package.mjs"
   },
   "dependencies": {},
   "devDependencies": {
     "typescript": "6.0.3"
-  }
+  },
+  "main": "./dist/judgment/index.js",
+  "types": "./dist/judgment/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/judgment/index.d.ts",
+      "import": "./dist/judgment/index.js"
+    },
+    "./decision-scopes": {
+      "types": "./dist/decision-scopes.d.ts",
+      "import": "./dist/decision-scopes.js"
+    },
+    "./bounded-trusted-json": {
+      "types": "./dist/bounded-trusted-json.d.ts",
+      "import": "./dist/bounded-trusted-json.js"
+    },
+    "./option-scoring": {
+      "types": "./dist/judgment/option-scoring.d.ts",
+      "import": "./dist/judgment/option-scoring.js"
+    },
+    "./quality-gates": {
+      "types": "./dist/judgment/mcda-quality-gates.d.ts",
+      "import": "./dist/judgment/mcda-quality-gates.js"
+    },
+    "./option-identities": {
+      "types": "./dist/judgment/option-identities.d.ts",
+      "import": "./dist/judgment/option-identities.js"
+    },
+    "./uncertain-retry": {
+      "types": "./dist/judgment/uncertain-retry.d.ts",
+      "import": "./dist/judgment/uncertain-retry.js"
+    },
+    "./scoped-advice": {
+      "types": "./dist/judgment/scoped-advice.d.ts",
+      "import": "./dist/judgment/scoped-advice.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE",
+    "PROVENANCE.json",
+    "DEPENDENCY-BOUNDARY.json",
+    "MIGRATION.md",
+    "examples/scoped-judgment/NOTICE",
+    "examples/scoped-judgment/LICENSE"
+  ]
 }

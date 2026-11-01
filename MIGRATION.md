@@ -7,3 +7,29 @@
 5. A release must have an accountable maintainer, compatibility policy, security reporting path, exact check evidence and received useful outcome where applicable. Native or production claims need their actual qualification. Do not fabricate upstream integration/browser results or inherit them from a merge.
 
 These are migration obligations, not extra per-tool human approvals. Ordinary authorized checks and independent review retain their current meaning; actual required human consent remains distinct.
+
+## Private installed foundation candidate
+
+`0.1.0-candidate.0` emits ESM and declarations with explicit package exports.
+The root exposes advisory judgment; supported subpaths are `decision-scopes`,
+`bounded-trusted-json`, `option-scoring`, `quality-gates`, `option-identities`,
+`uncertain-retry` and `scoped-advice`. Other deep paths are unsupported.
+`npm run check` verifies original provenance, nine original advisory scenarios,
+the build and a freshly installed tarball consumer including hostile/deep/large
+JSON rejection. Build inputs are Node 24.16.0 and TypeScript 6.0.3.
+
+This package is the canonical owner of decision scopes and bounded trusted JSON
+under the merged component cutover design. The new JSON leaf is copied unchanged
+from upstream merge 46f8a5ca9cb75aa871a223b70acc6dcc65d15a67 with its own
+per-file revision in PROVENANCE.json; the original provenance entries stay intact.
+No shared vocabulary semantics change. GPP must depend downward on this artifact
+and retire its emitted scope copy. Other components and products must migrate
+their own callers and retire displaced copies in their accepted slices.
+
+Maintainers use this repository's AGENTS.md, CONTRIBUTING.md, GitHub Issues and
+DCO-signed PR/standalone CI. DPF coordination is BI-076F22CC under BI-B8A4DE44;
+it is not evidence of native DPF admission. GitHub integration issue creation
+was denied on the first component repository; no credential workaround was used.
+Public package release, product adoption and native qualification remain held.
+Rollback before adoption is to retain the seed and prior product imports. After
+adoption each product owns restoring its exact prior dependency and callers.
