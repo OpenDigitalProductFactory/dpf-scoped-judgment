@@ -8,7 +8,7 @@ import {createHash} from 'node:crypto';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest=JSON.parse(await readFile(join(root,'package.json'),'utf8'));
-assert.equal(process.version,'v24.16.0');
+assert(['v24.16.0','v24.22.0','v24.22.1'].includes(process.version),'Use a supported installed-consumer toolchain; build stays pinned to24.16.0');
 assert.equal(manifest.private,true);
 assert.equal(manifest.exports?.['.']?.import,'./dist/judgment/index.js','Declare an installed advisory contract');
 assert.equal(manifest.exports?.['./bounded-trusted-json']?.types,'./dist/bounded-trusted-json.d.ts','Declare the bounded JSON contract');
@@ -29,9 +29,29 @@ try {
   run('npm',['install','--engine-strict','--ignore-scripts','--no-audit','--no-fund','--package-lock=false',tarball],consumer);
   const installed=join(consumer,'node_modules',...manifest.name.split('/'));
   assert(!(await lstat(installed)).isSymbolicLink());
+  // Both loaders must reach one ESM instance; separate compiled bodies would
+  // change function/constant identity when products mix source and build loaders.
+  const publicPaths=Object.keys(manifest.exports).map(key=>manifest.name+(key==='.'?'':key.slice(1)));
+  run(process.execPath,['--input-type=module','--eval',`
+    import assert from 'node:assert/strict';
+    import {createRequire} from 'node:module';
+    const require=createRequire(import.meta.url);
+    for(const path of ${JSON.stringify(publicPaths)}){
+      const imported=await import(path),required=require(path);
+      assert.deepEqual(Object.keys(required),Object.keys(imported),path+' export surface');
+      for(const key of Object.keys(imported))assert.strictEqual(required[key],imported[key],path+' shared identity '+key);
+    }
+    for(const path of ['${manifest.name}/dist/judgment/index.js','${manifest.name}/packages/validators/src/judgment/index.ts']){
+      assert.throws(()=>require(path),{code:'ERR_PACKAGE_PATH_NOT_EXPORTED'});
+    }
+    console.log('All public import/require identities and closed deep exports passed');
+  `],consumer);
   const fixture=await readFile(join(root,'examples/scoped-judgment/src/smoke.ts'),'utf8');
   await writeFile(join(consumer,'src/smoke.ts'),fixture.replaceAll('../kernel/judgment/index.js',manifest.name));
   const exports=Object.keys(manifest.exports).map((key,i)=>`import * as export${i} from '${manifest.name}${key==='.'?'':key.slice(1)}'; void export${i};`).join('\n');
+  await writeFile(join(consumer,'src/require.cts'),exports+`\nimport {DECISION_SCOPES} from '${manifest.name}/decision-scopes';
+import {isBoundedTrustedJson} from '${manifest.name}/bounded-trusted-json';
+if(DECISION_SCOPES.join(',')!=='wwmd,wwwd,wsid'||!isBoundedTrustedJson({safe:1})||isBoundedTrustedJson(new Date()))throw Error('CommonJS contract changed');\n`);
   await writeFile(join(consumer,'src/exports.ts'),exports+`\nimport {DECISION_SCOPES,type DecisionScope} from '${manifest.name}/decision-scopes';
 import {isBoundedTrustedJson as bounded} from '${manifest.name}/bounded-trusted-json';
 const scope:DecisionScope='wwwd'; if(DECISION_SCOPES.join(',')!=='wwmd,wwwd,wsid'||scope!=='wwwd') throw Error('Scope identity changed');
@@ -53,13 +73,14 @@ assert(bounded('x'.repeat(1048576))&&!bounded('x'.repeat(1048577)),'character ce
 assert(bounded(Array(19999).fill(null))&&!bounded(Array(20000).fill(null)),'node ceiling changed');
 console.log('bounded JSON normal/adverse contract passed');
 `);
-  await writeFile(join(consumer,'tsconfig.json'),JSON.stringify({compilerOptions:{target:'ES2022',module:'NodeNext',moduleResolution:'NodeNext',strict:true,types:[],skipLibCheck:false,noEmitOnError:true,outDir:'dist',rootDir:'src'},include:['src/**/*.ts']}));
+  await writeFile(join(consumer,'tsconfig.json'),JSON.stringify({compilerOptions:{target:'ES2022',module:'NodeNext',moduleResolution:'NodeNext',strict:true,types:[],skipLibCheck:false,noEmitOnError:true,outDir:'dist',rootDir:'src'},include:['src/**/*.ts','src/**/*.cts']}));
   run(process.execPath,[join(root,'node_modules/typescript/bin/tsc'),'--project',join(consumer,'tsconfig.json')],consumer);
   run(process.execPath,[join(consumer,'dist/exports.js')],consumer);
+  run(process.execPath,[join(consumer,'dist/require.cjs')],consumer);
   const output=run(process.execPath,['--input-type=module','--eval',"const {runSmoke}=await import('./dist/smoke.js'); console.log(JSON.stringify(runSmoke()));"],consumer);
   const result=JSON.parse(output);assert.equal(result.passed.length,9);
   run(process.execPath,['--input-type=module','--eval',`for(const path of ['${manifest.name}/dist/judgment/index.js','${manifest.name}/packages/validators/src/judgment/index.ts']){try{await import(path);throw Error('Unexported path admitted')}catch(error){if(error.code!=='ERR_PACKAGE_PATH_NOT_EXPORTED')throw error}}`],consumer);
   async function inspect(directory){for(const entry of await readdir(directory,{withFileTypes:true})){const path=join(directory,entry.name);if(entry.isDirectory())await inspect(path);else if(/\.(?:js|ts)$/.test(entry.name)){const text=await readFile(path,'utf8');for(const match of text.matchAll(/(?:from\s*|import\s*\()(["'])([^"']+)\1/g)){assert(!match[2].endsWith('.ts'));if(match[2].startsWith('.'))assert((await lstat(resolve(dirname(path),match[2]))).isFile());}}}}
   await inspect(join(installed,'dist'));
-  console.log(JSON.stringify({package:`${manifest.name}@${manifest.version}`,tarballSha256:createHash('sha256').update(await readFile(tarball)).digest('hex'),installedConsumer:'pass',declarations:'pass',boundedJson:'pass',cases:result.passed,qualification:result.qualification,productionConformance:false},null,2));
+  console.log(JSON.stringify({package:`${manifest.name}@${manifest.version}`,node:process.version,tarballSha256:createHash('sha256').update(await readFile(tarball)).digest('hex'),installedConsumer:'pass',declarations:'ESM and CommonJS pass',sharedImportRequireIdentity:'all public exports pass',boundedJson:'pass',cases:result.passed,qualification:result.qualification,productionConformance:false},null,2));
 }finally{await rm(temp,{recursive:true,force:true});}

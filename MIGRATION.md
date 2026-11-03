@@ -10,7 +10,7 @@ These are migration obligations, not extra per-tool human approvals. Ordinary au
 
 ## Private installed foundation candidate
 
-`0.1.0-candidate.2` emits ESM and declarations with explicit package exports.
+`0.1.0-candidate.3` emits ESM and declarations with explicit package exports.
 The root exposes advisory judgment; supported subpaths are `decision-scopes`,
 `bounded-trusted-json`, `option-scoring`, `quality-gates`, `option-identities`,
 `uncertain-retry` and `scoped-advice`. Other deep paths are unsupported.
@@ -41,3 +41,12 @@ The prior `.0` archive stays immutable. The receiving matrix is Darwin arm64,
 not product, actual browser/CSP or Linux enforcement qualification.
 
 Candidate `0.1.0-candidate.2` adds strict-install admission for Node 24.22.1, the patch used by current DPF CI. Build inputs remain pinned to Node 24.16.0/TypeScript 6.0.3. Qualification runs the clean installed receiver on the exact added patch as well as the prior receiving profile; source, emitted APIs and authority semantics are unchanged. Earlier candidate archives remain immutable. This is synthetic receiving evidence, not product, browser/CSP or OS acceptance.
+
+Candidate `0.1.0-candidate.3` adds public `require` conditions pointing to the
+same synchronous ESM files as `import`. It does not produce a parallel CommonJS
+implementation. Clean installed consumers must prove every public export has
+identical values through both loaders, CommonJS and ESM declarations compile,
+and unsupported deep paths still refuse. Source/provenance, emitted file bytes,
+engine versions and host authority remain unchanged. Prior archives remain
+immutable. Actual DPF framework-loader and product receiving qualification are
+separate from standalone checks; no product adoption is implied here.

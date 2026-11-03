@@ -1,6 +1,6 @@
 {
   "name": "@opendigitalproductfactory/dpf-scoped-judgment",
-  "version": "0.1.0-candidate.2",
+  "version": "0.1.0-candidate.3",
   "private": true,
   "type": "module",
   "description": "Scope-aware advisory judgment and option scoring",
@@ -29,35 +29,43 @@
   "exports": {
     ".": {
       "types": "./dist/judgment/index.d.ts",
-      "import": "./dist/judgment/index.js"
+      "import": "./dist/judgment/index.js",
+      "require": "./dist/judgment/index.js"
     },
     "./decision-scopes": {
       "types": "./dist/decision-scopes.d.ts",
-      "import": "./dist/decision-scopes.js"
+      "import": "./dist/decision-scopes.js",
+      "require": "./dist/decision-scopes.js"
     },
     "./bounded-trusted-json": {
       "types": "./dist/bounded-trusted-json.d.ts",
-      "import": "./dist/bounded-trusted-json.js"
+      "import": "./dist/bounded-trusted-json.js",
+      "require": "./dist/bounded-trusted-json.js"
     },
     "./option-scoring": {
       "types": "./dist/judgment/option-scoring.d.ts",
-      "import": "./dist/judgment/option-scoring.js"
+      "import": "./dist/judgment/option-scoring.js",
+      "require": "./dist/judgment/option-scoring.js"
     },
     "./quality-gates": {
       "types": "./dist/judgment/mcda-quality-gates.d.ts",
-      "import": "./dist/judgment/mcda-quality-gates.js"
+      "import": "./dist/judgment/mcda-quality-gates.js",
+      "require": "./dist/judgment/mcda-quality-gates.js"
     },
     "./option-identities": {
       "types": "./dist/judgment/option-identities.d.ts",
-      "import": "./dist/judgment/option-identities.js"
+      "import": "./dist/judgment/option-identities.js",
+      "require": "./dist/judgment/option-identities.js"
     },
     "./uncertain-retry": {
       "types": "./dist/judgment/uncertain-retry.d.ts",
-      "import": "./dist/judgment/uncertain-retry.js"
+      "import": "./dist/judgment/uncertain-retry.js",
+      "require": "./dist/judgment/uncertain-retry.js"
     },
     "./scoped-advice": {
       "types": "./dist/judgment/scoped-advice.d.ts",
-      "import": "./dist/judgment/scoped-advice.js"
+      "import": "./dist/judgment/scoped-advice.js",
+      "require": "./dist/judgment/scoped-advice.js"
     }
   },
   "files": [

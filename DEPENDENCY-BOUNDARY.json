@@ -27,8 +27,8 @@
   ],
   "artifactContract": {
     "name": "@opendigitalproductfactory/dpf-scoped-judgment",
-    "version": "0.1.0-candidate.2",
-    "format": "ESM plus declarations",
+    "version": "0.1.0-candidate.3",
+    "format": "One synchronous ESM implementation plus declarations; public import and require resolve identical files",
     "runtimeDependencies": {},
     "publicPackagePublication": false,
     "supportedNodeVersions": [
